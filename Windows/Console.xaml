@@ -1,0 +1,15 @@
+﻿<Window x:Class="CatViewer.Windows.Console"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CatViewer"
+        mc:Ignorable="d"
+        Title="Console" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Height="436">
+        <Menu Margin="0,0,0,0">
+            <MenuItem Header="_clear" Name="ClearButton" Click="ClearConsole"/>
+        </Menu>
+        <TextBox IsReadOnly="True" Name="ConsoleBox" HorizontalAlignment="Left" Margin="0,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="408" Width="790"/>
+    </Grid>
+</Window>
