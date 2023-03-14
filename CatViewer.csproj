@@ -5,7 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>./Icon.ico</ApplicationIcon>
+    <ApplicationIcon>./Icons/Icon.ico</ApplicationIcon>
     <IncludeNativeLibrariesForSelfExtract>True</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
@@ -23,11 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="ThumbsDown.png" />
-    <Resource Include="ThumbsUp.png" />
-    <Resource Include="Windows\CloseWindow.png" />
-    <Resource Include="Windows\MinimizeWindow.png" />
-    <Resource Include="Windows\ResizeWindow.png" />
+    <Resource Include="Icons\ThumbsDown.png" />
+    <Resource Include="Icons\ThumbsUp.png" />
+    <Resource Include="Icons\CloseWindow.png" />
+    <Resource Include="Icons\MinimizeWindow.png" />
+    <Resource Include="Icons\ResizeWindow.png" />
   </ItemGroup>
 
 </Project>

@@ -60,24 +60,24 @@
                 <Label Foreground="White" Content="Voting:" Margin="341,0,0,10" VerticalAlignment="Bottom" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" Width="47"/>
                 <Label Foreground="White" Name="VoteLabel" Content="(disabled) Click &#34;Get cat&#34; to start voting" HorizontalAlignment="Left" Margin="484,0,0,10" Grid.Row="0" Grid.RowSpan="2" Height="26" VerticalAlignment="Bottom"/>
                 <Button Style="{DynamicResource DisabledButtonStyle}" BorderThickness="0" Background="Transparent" Foreground="Transparent" Name="UpVoteButton" HorizontalAlignment="Left" Margin="394,0,0,12" Grid.Row="0" Grid.RowSpan="2" Width="30" Height="24" VerticalAlignment="Bottom" Click="VoteChanged" IsEnabled="False">
-                    <Image Height="19" Source="/ThumbsUp.png" Stretch="Fill" Width="15"/>
+                    <Image Height="19" Source="../Icons/ThumbsUp.png" Stretch="Fill" Width="15"/>
                 </Button>
                 <Button Style="{DynamicResource DisabledButtonStyle}" BorderThickness="0" Foreground="Transparent" Background="Transparent" Name="DownVoteButton" HorizontalAlignment="Left" Margin="440,0,0,12" Grid.Row="0" Grid.RowSpan="2" Width="30" Height="24" VerticalAlignment="Bottom" Click="VoteChanged" IsEnabled="False">
-                    <Image Height="19" Stretch="Fill" Width="17" Source="/ThumbsDown.png"/>
+                    <Image Height="19" Stretch="Fill" Width="17" Source="../Icons/ThumbsDown.png"/>
                 </Button>
                 <Button BorderThickness="0" Grid.Row="0" Margin="0,4,28,0" Click="OnWindowResize" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="21" Foreground="Transparent">
                     <Button.Background>
-                        <ImageBrush ImageSource="./ResizeWindow.png"/>
+                        <ImageBrush ImageSource="../Icons/ResizeWindow.png"/>
                     </Button.Background>
                 </Button>
                 <Button BorderThickness="0" Grid.Row="0" HorizontalAlignment="Right" Margin="0,4,6,0" Click="OnWindowClosing" Height="20" VerticalAlignment="Top" Foreground="Transparent" Width="18">
                     <Button.Background>
-                        <ImageBrush ImageSource="./CloseWindow.png"/>
+                        <ImageBrush ImageSource="../Icons/CloseWindow.png"/>
                     </Button.Background>
                 </Button>
                 <Button BorderThickness="0" Grid.Row="0" Margin="0,3,54,0" Click="OnWindowMinimized" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="21" Foreground="Transparent">
                     <Button.Background>
-                        <ImageBrush ImageSource="./MinimizeWindow.png"/>
+                        <ImageBrush ImageSource="../Icons/MinimizeWindow.png"/>
                     </Button.Background>
                 </Button>
             </Grid>
