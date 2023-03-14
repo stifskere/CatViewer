@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Windows;
+using System;
 
 namespace CatViewer;
 
@@ -19,11 +20,22 @@ public static class Methods
             ProgramWindow.Client.DefaultRequestHeaders.TryAddWithoutValidation(header.Name, header.Value);
     }
 
-    private static async void ShowErrorMessage(HttpResponseMessage response)
-        => MessageBox.Show($"There was an error on the get request: {response.StatusCode}\nApi response: {await response.Content.ReadAsStringAsync()}", "Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+    private static async void ShowErrorMessage(HttpResponseMessage response, bool required = false, string? errorMessage = null)
+    {
+        MessageBox.Show(errorMessage ?? ($"There was an error on the get request: {response.StatusCode}\nApi response: {await response.Content.ReadAsStringAsync()}" + (required ? "\n\nThe app will close now" : "")),
+                required ? "FATAL ERROR" : "ERROR",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error,
+                MessageBoxResult.OK);
 
+        if (required)
+            Environment.Exit(-1);
+    }
 
     public static async Task<HttpContent?> HttpRequestAsync(string url, params HttpHeader[] headers)
+        => await HttpRequestAsync(url, false, null, headers);
+
+    public static async Task<HttpContent?> HttpRequestAsync(string url, bool required = false, string? errorMessage = null, params HttpHeader[] headers)
     {
         ClearAndSetHeaders(headers);
 
@@ -33,12 +45,15 @@ public static class Methods
         if (response.IsSuccessStatusCode)
             return response.Content;
 
-        ShowErrorMessage(response);
+        ShowErrorMessage(response, required, errorMessage);
 
         return null;
     }
 
     public static async Task<bool> HttpPostAsync(string url, HttpContent content, params HttpHeader[] headers)
+        => await HttpPostAsync(url, content, false, null, headers);
+
+    public static async Task<bool> HttpPostAsync(string url, HttpContent content, bool required = false, string? errorMessage = null, params HttpHeader[] headers)
     {
         ClearAndSetHeaders(headers);
         HttpResponseMessage response = await ProgramWindow.Client.PostAsync(url, content);
@@ -47,7 +62,7 @@ public static class Methods
         ProgramWindow.ProgramConsole.WriteLine(response.RequestMessage!.ToString());
 
         if (!response.IsSuccessStatusCode)
-            ShowErrorMessage(response);
+            ShowErrorMessage(response, required, errorMessage);
 
         return response.IsSuccessStatusCode;
     }

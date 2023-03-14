@@ -50,7 +50,8 @@ public partial class MainWindow
 
     private async void AsyncCtr()
     {
-        HttpContent? allBreeds = await HttpRequestAsync("https://api.thecatapi.com/v1/breeds");
+        HttpContent? allBreeds = await HttpRequestAsync("https://api.thecatapi.com/v1/breeds", true, "Connection Error: There was an error while connection to the api due to a network problem, the app will close.", new HttpHeader("x-api-key", CatApiKey));
+
         Breed[] breeds = JsonConvert.DeserializeObject<Breed[]>(await allBreeds!.ReadAsStringAsync())!;
 
         BreedsBox.Items.Add(new Breed{Id = "Any", Name = "Any"});
